@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Box Office</string>
+
+    <string name="url_request_method">GET</string>
+
+    <!-- URL parts -->
+    <string name="api_url_key">api_url</string>
+    <string name="api_url">https://api.themoviedb.org/3/movie/</string>
+
+    <!-- Movies Sort Options -->
+    <string name="api_url_sorted_by_popular_path">popular</string>
+    <string name="api_url_sorted_by_top_rated_path">top_rated</string>
+    <string name="api_url_sorted_by_now_playing">now_playing</string>
+
+    <!-- Api key -->
+    <string name="api_key_url_key">api_key</string>
+    <string name="api_key_url_value"><!--Put your API Key Here--></string>
+    
+    <!-- Json Keys -->
+    <string name="json_key_results_array">results</string>
+    <string name="json_key_movie_id">id</string>
+    <string name="josn_key_movie_title">title</string>
+    <string name="json_key_movie_rate">vote_average</string>
+    <string name="json_key_movie_plot">overview</string>
+    <string name="json_key_poster_path">poster_path</string>
+    <string name="json_key_release_date">release_date</string>
+
+
+
+
+    <string name="network_error_message">No Networks Available</string>
+</resources>
