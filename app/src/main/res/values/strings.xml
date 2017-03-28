@@ -11,8 +11,11 @@
     <string name="poster_size">w185</string>
 
     <!-- Movies Sort Options -->
-    <string name="api_url_sorted_by_popular_path">popular</string>
-    <string name="api_url_sorted_by_top_rated_path">top_rated</string>
+    <string name="sorted_by_popular_lable">Popular</string>
+    <string name="api_url_sorted_by_popular">popular</string>
+    <string name="sorted_by_top_rated_lable">Top Rated</string>
+    <string name="api_url_sorted_by_top_rated">top_rated</string>
+    <string name="sorted_by_now_playing_lable">Now PLaying</string>
     <string name="api_url_sorted_by_now_playing">now_playing</string>
 
     <!-- Api key -->
@@ -33,4 +36,5 @@
 
 
     <string name="network_error_message">No Networks Available</string>
+    <string name="empty_movies_list_message">No Available Movies</string>
 </resources>

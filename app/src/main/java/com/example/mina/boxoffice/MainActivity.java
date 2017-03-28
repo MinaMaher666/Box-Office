@@ -9,6 +9,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.mina.boxoffice.Utils.NetworkUtils;
@@ -17,7 +22,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<Movie>>{
+public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<Movie>>, MovieAdapter.MovieOnClickListener{
 
 
     public static final String LOG_TAG = MainActivity.class.getSimpleName();
@@ -27,13 +32,16 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private List<Movie> mMovies;
     private MovieAdapter movieAdapter;
 
+    private View mEmptyListMessageView;
+    private RecyclerView mRecyclerView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         mMovies = new ArrayList<>();
-        movieAdapter = new MovieAdapter(mMovies);
+        movieAdapter = new MovieAdapter(mMovies, this);
         GridLayoutManager layoutManager;
 
         if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
@@ -42,20 +50,58 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             layoutManager = getANumSpanCountGridLayout(2);
         }
 
-        RecyclerView moviesRecyclerView = (RecyclerView) findViewById(R.id.movies_recycler_view);
-        moviesRecyclerView.setLayoutManager(layoutManager);
-        moviesRecyclerView.setAdapter(movieAdapter);
+        mRecyclerView = (RecyclerView) findViewById(R.id.movies_recycler_view);
+        mEmptyListMessageView = findViewById(R.id.empty_list_message_text_view);
+
+        mRecyclerView.setLayoutManager(layoutManager);
+        mRecyclerView.setAdapter(movieAdapter);
 
         userSortChoice = getString(R.string.api_url_sorted_by_now_playing);
 
+        initLoader();
+    }
+
+    private void initLoader() {
         Bundle loaderBundle = new Bundle();
-        loaderBundle.putString(getString(R.string.api_url_key), NetworkUtils.buildUrl(userSortChoice, MainActivity.this));
+        String urlString = NetworkUtils.buildUrl(userSortChoice, MainActivity.this);
+        loaderBundle.putString(getString(R.string.api_url_key), urlString);
 
         if(NetworkUtils.isConnected(MainActivity.this)) {
-            getSupportLoaderManager().initLoader(LOADER_ID, loaderBundle, this);
+            getSupportLoaderManager().restartLoader(LOADER_ID, loaderBundle, this);
         } else {
             showNoNetworkToast();
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int itemId = item.getItemId();
+
+        switch (itemId) {
+            case R.id.sorted_by_now_playing:
+                userSortChoice = getString(R.string.api_url_sorted_by_now_playing);
+                break;
+
+            case R.id.sorted_by_popular:
+                userSortChoice = getString(R.string.api_url_sorted_by_popular);
+                break;
+
+            case R.id.sorted_by_top_rated:
+                userSortChoice = getString(R.string.api_url_sorted_by_top_rated);
+                break;
+
+            default:
+                return false;
+        }
+        initLoader();
+        return true;
     }
 
     private GridLayoutManager getANumSpanCountGridLayout(int spanCount) {
@@ -66,9 +112,10 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     public void showNoNetworkToast() {
         if (mToast != null)
             mToast.cancel();
-
         mToast = Toast.makeText(MainActivity.this, getString(R.string.network_error_message), Toast.LENGTH_SHORT);
         mToast.show();
+
+        showEmptyListMessage();
     }
 
     @Override
@@ -96,9 +143,33 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         mMovies.clear();
         mMovies.addAll(data);
         movieAdapter.notifyDataSetChanged();
+
+        if (mMovies.size() > 0) {
+            hideEmptyListMessage();
+        } else {
+            showEmptyListMessage();
+        }
     }
 
     @Override
     public void onLoaderReset(Loader<List<Movie>> loader) {
+    }
+
+    @Override
+    public void onClick(int position) {
+        if (mToast != null)
+            mToast.cancel();
+        mToast = Toast.makeText(MainActivity.this, mMovies.get(position).getmTitle(), Toast.LENGTH_SHORT);
+        mToast.show();
+    }
+
+    public void showEmptyListMessage() {
+        mRecyclerView.setVisibility(View.INVISIBLE);
+        mEmptyListMessageView.setVisibility(View.VISIBLE);
+    }
+
+    public void hideEmptyListMessage() {
+        mEmptyListMessageView.setVisibility(View.INVISIBLE);
+        mRecyclerView.setVisibility(View.VISIBLE);
     }
 }
