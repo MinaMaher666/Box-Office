@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.util.Log;
 
 import com.example.mina.boxoffice.Movie;
 import com.example.mina.boxoffice.R;
@@ -39,6 +40,17 @@ public class NetworkUtils {
         } else {
             return false;
         }
+    }
+
+
+    public static String buildPosterUrl(Context context, String posterPath) {
+        String posterBaseUrl = context.getString(R.string.poster_base_url);
+        String posterSize = context.getString(R.string.poster_size);
+        Uri posterUri = Uri.parse(posterBaseUrl)
+                .buildUpon()
+                .appendPath(posterSize)
+                .build();
+        return posterUri.toString() + posterPath;
     }
 
 
