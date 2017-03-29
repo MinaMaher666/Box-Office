@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/movie_title"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/title_hight"
+            android:layout_alignParentTop="true"
+            android:background="@color/colorAccent"
+            android:maxLines="2"
+            android:padding="@dimen/normal_margin"
+            android:textColor="#fff"
+            android:textSize="@dimen/title_text_size"
+            tools:text="Logan" />
+
+        <ImageView
+            android:id="@+id/detail_poster"
+            android:layout_width="@dimen/detail_poster_width"
+            android:layout_height="@dimen/detail_poster_height"
+            android:layout_below="@id/movie_title"
+            android:layout_margin="@dimen/normal_margin"
+            android:scaleType="centerCrop"
+            tools:background="@drawable/images" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/movie_title"
+            android:layout_marginLeft="@dimen/large_margin"
+            android:layout_marginStart="@dimen/large_margin"
+            android:layout_marginTop="@dimen/large_margin"
+            android:layout_toEndOf="@id/detail_poster"
+            android:layout_toRightOf="@id/detail_poster"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/release_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/normal_margin"
+                android:textSize="@dimen/title_text_size"
+                android:textStyle="bold"
+                tools:text="2017" />
+
+            <LinearLayout
+                android:id="@+id/rate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/ic_star" />
+
+                <TextView
+                    android:id="@+id/rate_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/very_small_margin"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    tools:text="7.5" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/full_rate" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/plot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/detail_poster"
+            android:padding="@dimen/normal_margin"
+            android:textSize="@dimen/plot_text_size"
+            tools:text="In the near future, a weary Logan cares for an ailing Professor X somewhere on the Mexican border. However, Logan's attempts to hide from the world and his legacy are upended when a young mutant arrives, pursued by dark forces. " />
+    </RelativeLayout>
+</ScrollView>

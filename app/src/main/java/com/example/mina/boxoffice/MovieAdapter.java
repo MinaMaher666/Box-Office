@@ -1,18 +1,24 @@
 package com.example.mina.boxoffice;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.TextClock;
+import android.widget.TextView;
 
 import com.example.mina.boxoffice.Utils.NetworkUtils;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
-import java.net.URL;
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 /**
@@ -52,19 +58,62 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
     }
 
     class MovieViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        ImageView moviePoster;
+        private ImageView mMoviePoster;
+        private ProgressBar mLoadingIndicator;
+        private TextView rateTextView;
 
         public MovieViewHolder(View itemView) {
             super(itemView);
-            moviePoster = (ImageView) itemView.findViewById(R.id.movie_poster);
+            mMoviePoster = (ImageView) itemView.findViewById(R.id.movie_poster);
+            mLoadingIndicator = (ProgressBar) itemView.findViewById(R.id.poster_pb);
+            rateTextView = (TextView) itemView.findViewById(R.id.main_rate);
             itemView.setOnClickListener(this);
         }
+
+        private Target mTarget;
 
         void bind(int itemIndex) {
             Context context = itemView.getContext();
             String posterPath = mMovies.get(itemIndex).getmPosterPath();
             String posterUrlString = NetworkUtils.buildPosterUrl(context, posterPath);
-            Picasso.with(context).load(Uri.parse(posterUrlString)).into(moviePoster);
+            attachPosterImageView(Uri.parse(posterUrlString));
+        }
+
+
+        private void attachPosterImageView(Uri posterUri) {
+            if(mTarget == null) {
+                mTarget = new Target() {
+                    @Override
+                    public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
+                        hideLoadingIndicator();
+                        mMoviePoster.setImageBitmap(bitmap);
+                        double rate = mMovies.get(getAdapterPosition()).getmRate();
+                        rateTextView.setText(String.valueOf(rate));
+                    }
+
+                    @Override
+                    public void onBitmapFailed(Drawable errorDrawable) {
+
+                    }
+
+                    @Override
+                    public void onPrepareLoad(Drawable placeHolderDrawable) {
+                        showLoadingIndicator();
+                    }
+                };
+            }
+
+            Picasso.with(itemView.getContext()).load(posterUri).into(mTarget);
+        }
+
+        private void showLoadingIndicator() {
+            mMoviePoster.setVisibility(View.INVISIBLE);
+            mLoadingIndicator.setVisibility(View.VISIBLE);
+        }
+
+        private void hideLoadingIndicator() {
+            mLoadingIndicator.setVisibility(View.INVISIBLE);
+            mMoviePoster.setVisibility(View.VISIBLE);
         }
 
         @Override

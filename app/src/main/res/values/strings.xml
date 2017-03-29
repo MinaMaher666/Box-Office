@@ -22,7 +22,6 @@
     <string name="api_key_url_key">api_key</string>
     <string name="api_key_url_value"><!--Put your API Key Here--></string>
 
-
     <!-- Json Keys -->
     <string name="json_key_results_array">results</string>
     <string name="json_key_movie_id">id</string>
@@ -33,8 +32,7 @@
     <string name="json_key_release_date">release_date</string>
 
 
-
-
     <string name="network_error_message">No Networks Available</string>
     <string name="empty_movies_list_message">No Available Movies</string>
+    <string name="full_rate">/10</string>
 </resources>

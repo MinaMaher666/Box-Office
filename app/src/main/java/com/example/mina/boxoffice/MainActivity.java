@@ -1,7 +1,9 @@
 package com.example.mina.boxoffice;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
+import android.os.PersistableBundle;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.AsyncTaskLoader;
 import android.support.v4.content.Loader;
@@ -35,6 +37,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private View mEmptyListMessageView;
     private RecyclerView mRecyclerView;
 
+    public static final String SELECTED_MOVIE = "selected_movie";
+    public static final String SORT_USER_CHOICE_BUNDLE_KEY = "user_choise";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,9 +60,19 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         mRecyclerView.setLayoutManager(layoutManager);
         mRecyclerView.setAdapter(movieAdapter);
 
-        userSortChoice = getString(R.string.api_url_sorted_by_now_playing);
+        if(savedInstanceState != null && savedInstanceState.containsKey(SORT_USER_CHOICE_BUNDLE_KEY)) {
+            userSortChoice = savedInstanceState.getString(SORT_USER_CHOICE_BUNDLE_KEY);
+        } else {
+            userSortChoice = getString(R.string.api_url_sorted_by_now_playing);
+        }
 
         initLoader();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString(SORT_USER_CHOICE_BUNDLE_KEY, userSortChoice);
     }
 
     private void initLoader() {
@@ -157,10 +171,11 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     @Override
     public void onClick(int position) {
-        if (mToast != null)
-            mToast.cancel();
-        mToast = Toast.makeText(MainActivity.this, mMovies.get(position).getmTitle(), Toast.LENGTH_SHORT);
-        mToast.show();
+        Intent detailIntent = new Intent(MainActivity.this, DetailActivity.class);
+        Movie selectedMovie = mMovies.get(position);
+
+        detailIntent.putExtra(SELECTED_MOVIE, selectedMovie);
+        startActivity(detailIntent);
     }
 
     public void showEmptyListMessage() {

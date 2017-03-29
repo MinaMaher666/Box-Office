@@ -1,10 +1,13 @@
 package com.example.mina.boxoffice;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by mina on 27/03/17.
  */
 
-public class Movie {
+public class Movie implements Parcelable{
     private int mMovieId;
     private String mTitle;
     private String mReleaseDate;
@@ -20,6 +23,27 @@ public class Movie {
         this.mPlot = mPlot;
         this.mRate = mRate;
     }
+
+    protected Movie(Parcel in) {
+        mMovieId = in.readInt();
+        mTitle = in.readString();
+        mReleaseDate = in.readString();
+        mPosterPath = in.readString();
+        mPlot = in.readString();
+        mRate = in.readDouble();
+    }
+
+    public static final Creator<Movie> CREATOR = new Creator<Movie>() {
+        @Override
+        public Movie createFromParcel(Parcel in) {
+            return new Movie(in);
+        }
+
+        @Override
+        public Movie[] newArray(int size) {
+            return new Movie[size];
+        }
+    };
 
     public int getmMovieId() {
         return mMovieId;
@@ -42,5 +66,20 @@ public class Movie {
 
     public double getmRate() {
         return mRate;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(mMovieId);
+        dest.writeString(mTitle);
+        dest.writeString(mReleaseDate);
+        dest.writeString(mPosterPath);
+        dest.writeString(mPlot);
+        dest.writeDouble(mRate);
     }
 }

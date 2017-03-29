@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/normal_margin">
+
+        <ImageView
+            android:id="@+id/detail_poster"
+            android:scaleType="centerCrop"
+            android:layout_width="@dimen/detail_poster_width"
+            android:layout_height="@dimen/detail_poster_height"
+            tools:background="@drawable/images" />
+
+        <RelativeLayout
+            android:id="@+id/headline"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/title_hight"
+            android:layout_toEndOf="@id/detail_poster"
+            android:layout_toRightOf="@id/detail_poster"
+            android:background="@color/colorAccent"
+            android:padding="@dimen/normal_margin">
+
+            <TextView
+                android:id="@+id/movie_title"
+                android:maxWidth="@dimen/title_max_width"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/title_text_size"
+                android:textColor="#fff"
+                tools:text="Logan" />
+
+            <TextView
+                android:layout_toRightOf="@id/movie_title"
+                android:id="@+id/release_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#fff"
+                android:alpha="0.5"
+                android:layout_marginLeft="@dimen/small_margin"
+                android:layout_marginStart="@dimen/small_margin"
+                android:textSize="@dimen/title_text_size"
+                tools:text="(2017)" />
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:id="@+id/rate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/headline"
+            android:layout_margin="@dimen/large_margin"
+            android:layout_toEndOf="@id/detail_poster"
+            android:layout_toRightOf="@id/detail_poster"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_star" />
+
+            <TextView
+                android:id="@+id/rate_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/very_small_margin"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:text="7.5" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/full_rate" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/plot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rate"
+            android:layout_toRightOf="@id/detail_poster"
+            android:padding="@dimen/normal_margin"
+            android:textSize="@dimen/plot_text_size"
+            tools:text="In the near future, a weary Logan cares for an ailing Professor X somewhere on the Mexican border. However, Logan's attempts to hide from the world and his legacy are upended when a young mutant arrives, pursued by dark forces. " />
+    </RelativeLayout>
+</ScrollView>
