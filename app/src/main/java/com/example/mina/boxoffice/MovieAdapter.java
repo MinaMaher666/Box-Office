@@ -75,19 +75,19 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
         void bind(int itemIndex) {
             Context context = itemView.getContext();
             String posterPath = mMovies.get(itemIndex).getmPosterPath();
+            double rate = mMovies.get(itemIndex).getmRate();
             String posterUrlString = NetworkUtils.buildPosterUrl(context, posterPath);
-            attachPosterImageView(Uri.parse(posterUrlString));
+            attachPosterImageView(Uri.parse(posterUrlString), rate);
         }
 
 
-        private void attachPosterImageView(Uri posterUri) {
+        private void attachPosterImageView(Uri posterUri, final double rate) {
             if(mTarget == null) {
                 mTarget = new Target() {
                     @Override
                     public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
                         hideLoadingIndicator();
                         mMoviePoster.setImageBitmap(bitmap);
-                        double rate = mMovies.get(getAdapterPosition()).getmRate();
                         rateTextView.setText(String.valueOf(rate));
                     }
 
