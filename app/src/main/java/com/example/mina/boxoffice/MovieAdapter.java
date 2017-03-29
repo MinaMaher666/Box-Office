@@ -10,14 +10,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.TextClock;
 import android.widget.TextView;
 
 import com.example.mina.boxoffice.Utils.NetworkUtils;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
-import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -27,7 +25,7 @@ import java.util.List;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
     private List<Movie> mMovies;
-    MovieOnClickListener clickListener;
+    private MovieOnClickListener clickListener;
 
     public MovieAdapter(List<Movie> movies, MovieOnClickListener listener) {
         this.mMovies = movies;
@@ -35,7 +33,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
     }
 
     public interface MovieOnClickListener {
-        public void onClick(int position);
+        void onClick(int position);
     }
 
     @Override
@@ -74,21 +72,20 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
         void bind(int itemIndex) {
             Context context = itemView.getContext();
-            String posterPath = mMovies.get(itemIndex).getmPosterPath();
             double rate = mMovies.get(itemIndex).getmRate();
+            String posterPath = mMovies.get(itemIndex).getmPosterPath();
             String posterUrlString = NetworkUtils.buildPosterUrl(context, posterPath);
             attachPosterImageView(Uri.parse(posterUrlString), rate);
         }
 
 
-        private void attachPosterImageView(Uri posterUri, final double rate) {
+        private void attachPosterImageView(Uri posterUri, double rate) {
             if(mTarget == null) {
                 mTarget = new Target() {
                     @Override
                     public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
-                        hideLoadingIndicator();
                         mMoviePoster.setImageBitmap(bitmap);
-                        rateTextView.setText(String.valueOf(rate));
+                        hideLoadingIndicator();
                     }
 
                     @Override
@@ -103,6 +100,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
                 };
             }
 
+            rateTextView.setText(String.valueOf(rate));
             Picasso.with(itemView.getContext()).load(posterUri).into(mTarget);
         }
 

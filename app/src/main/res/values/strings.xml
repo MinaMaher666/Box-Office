@@ -20,7 +20,7 @@
 
     <!-- Api key -->
     <string name="api_key_url_key">api_key</string>
-    <string name="api_key_url_value"><!-- Put Yout API KEY HERE --></string>
+    <string name="api_key_url_value"><!-- PUT YOuR API KEY HERE --></string>
 
 
     <!-- Json Keys -->
