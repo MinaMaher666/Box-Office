@@ -107,10 +107,14 @@ public class NetworkUtils {
         return builder.toString();
     }
 
-    public static List<Movie> extractMoviesFromJson(String jsonResponce, Context context) {
+    public static List<Movie> extractMoviesFromJson(String jsonResponse, Context context) {
         ArrayList<Movie> movies = new ArrayList<>();
+        if (jsonResponse == null || jsonResponse.length()==0) {
+            return movies;
+        }
+
         try {
-            JSONObject root = new JSONObject(jsonResponce);
+            JSONObject root = new JSONObject(jsonResponse);
             JSONArray results = root.getJSONArray(context.getString(R.string.json_key_results_array));
 
             int movieId;
