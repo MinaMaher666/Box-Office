@@ -16,7 +16,7 @@
             android:background="@color/colorAccent"
             android:maxLines="2"
             android:padding="@dimen/normal_margin"
-            android:textColor="#fff"
+            android:textColor="@color/colorWhite"
             android:textSize="@dimen/title_text_size"
             tools:text="Logan" />
 
@@ -58,8 +58,8 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="42dp"
-                    android:layout_height="42dp"
+                    android:layout_width="@dimen/progressbar_r"
+                    android:layout_height="@dimen/progressbar_r"
                     android:layout_gravity="center"
                     android:background="@drawable/ic_star" />
 
@@ -69,7 +69,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="@dimen/very_small_margin"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/plot_text_size"
                     android:textStyle="bold"
                     tools:text="7.5" />
 

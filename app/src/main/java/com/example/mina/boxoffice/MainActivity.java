@@ -3,19 +3,20 @@ package com.example.mina.boxoffice;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.os.PersistableBundle;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.AsyncTaskLoader;
 import android.support.v4.content.Loader;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.mina.boxoffice.Utils.NetworkUtils;
@@ -24,7 +25,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<Movie>>, MovieAdapter.MovieOnClickListener{
+public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<Movie>>, MovieAdapter.MovieOnClickListener,
+        Spinner.OnItemSelectedListener{
 
 
     public static final String LOG_TAG = MainActivity.class.getSimpleName();
@@ -39,6 +41,10 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     public static final String SELECTED_MOVIE = "selected_movie";
     public static final String SORT_USER_CHOICE_BUNDLE_KEY = "user_choise";
+
+    private Spinner mSpinner;
+    private int mSavedSpinnerSelectedPosition;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,9 +67,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         mRecyclerView.setAdapter(movieAdapter);
 
         if(savedInstanceState != null && savedInstanceState.containsKey(SORT_USER_CHOICE_BUNDLE_KEY)) {
-            userSortChoice = savedInstanceState.getString(SORT_USER_CHOICE_BUNDLE_KEY);
+            mSavedSpinnerSelectedPosition = savedInstanceState.getInt(SORT_USER_CHOICE_BUNDLE_KEY);
         } else {
-            userSortChoice = getString(R.string.api_url_sorted_by_now_playing);
+            mSavedSpinnerSelectedPosition = 0;
         }
 
         initLoader();
@@ -72,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putString(SORT_USER_CHOICE_BUNDLE_KEY, userSortChoice);
+        outState.putInt(SORT_USER_CHOICE_BUNDLE_KEY, mSpinner.getSelectedItemPosition());
     }
 
     private void initLoader() {
@@ -91,32 +97,20 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_main, menu);
+
+        MenuItem spinnerItem = menu.findItem(R.id.sort_spinner);
+        mSpinner = (Spinner) MenuItemCompat.getActionView(spinnerItem);
+
+        String[] options = getResources().getStringArray(R.array.sort_options);
+        SpinnerAdapter spinnerAdapter = new SpinnerAdapter(MainActivity.this, options);
+
+
+        mSpinner.setAdapter(spinnerAdapter);
+        mSpinner.setSelection(mSavedSpinnerSelectedPosition);
+        mSpinner.setOnItemSelectedListener(this);
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int itemId = item.getItemId();
-
-        switch (itemId) {
-            case R.id.sorted_by_now_playing:
-                userSortChoice = getString(R.string.api_url_sorted_by_now_playing);
-                break;
-
-            case R.id.sorted_by_popular:
-                userSortChoice = getString(R.string.api_url_sorted_by_popular);
-                break;
-
-            case R.id.sorted_by_top_rated:
-                userSortChoice = getString(R.string.api_url_sorted_by_top_rated);
-                break;
-
-            default:
-                return false;
-        }
-        initLoader();
-        return true;
-    }
 
     private GridLayoutManager getANumSpanCountGridLayout(int spanCount) {
         return new GridLayoutManager(MainActivity.this, spanCount);
@@ -186,5 +180,27 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     public void hideEmptyListMessage() {
         mEmptyListMessageView.setVisibility(View.INVISIBLE);
         mRecyclerView.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        switch (position) {
+            case 0:
+                userSortChoice = getString(R.string.api_url_sorted_by_now_playing);
+                break;
+
+            case 1:
+                userSortChoice = getString(R.string.api_url_sorted_by_popular);
+                break;
+
+            case 2:
+                userSortChoice = getString(R.string.api_url_sorted_by_top_rated);
+                break;
+        }
+        initLoader();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
     }
 }

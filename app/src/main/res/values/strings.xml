@@ -11,16 +11,16 @@
     <string name="poster_size">w185</string>
 
     <!-- Movies Sort Options -->
-    <string name="sorted_by_popular_lable">Popular</string>
+    <string name="sorted_by_popular_label">Popular</string>
     <string name="api_url_sorted_by_popular">popular</string>
-    <string name="sorted_by_top_rated_lable">Top Rated</string>
+    <string name="sorted_by_top_rated_label">Top Rated</string>
     <string name="api_url_sorted_by_top_rated">top_rated</string>
-    <string name="sorted_by_now_playing_lable">Now PLaying</string>
+    <string name="sorted_by_now_playing_label">Now PLaying</string>
     <string name="api_url_sorted_by_now_playing">now_playing</string>
 
     <!-- Api key -->
     <string name="api_key_url_key">api_key</string>
-    <string name="api_key_url_value"><!-- PUT YOuR API KEY HERE --></string>
+    <string name="api_key_url_value"><!-- PUT YOUR API KEY HERE --></string>
 
 
     <!-- Json Keys -->
@@ -32,8 +32,11 @@
     <string name="json_key_poster_path">poster_path</string>
     <string name="json_key_release_date">release_date</string>
 
-
+    <!-- Error Messages -->
     <string name="network_error_message">No Networks Available</string>
     <string name="empty_movies_list_message">No Available Movies</string>
+
     <string name="full_rate">/10</string>
+
+    <string name="spinner_title">Sorted By</string>
 </resources>
