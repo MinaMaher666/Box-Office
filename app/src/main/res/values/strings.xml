@@ -18,10 +18,13 @@
     <string name="sorted_by_now_playing_label">Now PLaying</string>
     <string name="api_url_sorted_by_now_playing">now_playing</string>
 
+    <!-- URL PARAMS -->
     <!-- Api key -->
     <string name="api_key_url_key">api_key</string>
     <string name="api_key_url_value"><!-- PUT YOUR API KEY HERE --></string>
 
+    <string name="api_page_url_key">page</string>
+    <!--  URL PARAMS-->
 
     <!-- Json Keys -->
     <string name="json_key_results_array">results</string>

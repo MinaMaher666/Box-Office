@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -40,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private RecyclerView mRecyclerView;
 
     public static final String SELECTED_MOVIE = "selected_movie";
-    public static final String SORT_USER_CHOICE_BUNDLE_KEY = "user_choise";
+    public static final String SORT_USER_CHOICE_BUNDLE_KEY = "user_choice";
 
     private Spinner mSpinner;
     private int mSavedSpinnerSelectedPosition;
@@ -52,6 +53,16 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
         mMovies = new ArrayList<>();
         movieAdapter = new MovieAdapter(mMovies, this);
+
+        movieAdapter.setOnReachLastPositionListener(new MovieAdapter.OnReachLastPosition() {
+            @Override
+            public void refreshPage(int page) {
+                Log.i(LOG_TAG, "refreshPage: ");
+                String newPageUrlString = NetworkUtils.buildUrl(userSortChoice, MainActivity.this, page);
+                initLoader(newPageUrlString);
+            }
+        });
+
         GridLayoutManager layoutManager;
 
         if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
@@ -72,7 +83,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             mSavedSpinnerSelectedPosition = 0;
         }
 
-        initLoader();
+        String urlString = NetworkUtils.buildUrl(userSortChoice, MainActivity.this, 1);
+        initLoader(urlString);
     }
 
     @Override
@@ -81,9 +93,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         outState.putInt(SORT_USER_CHOICE_BUNDLE_KEY, mSpinner.getSelectedItemPosition());
     }
 
-    private void initLoader() {
+    private void initLoader(String urlString) {
         Bundle loaderBundle = new Bundle();
-        String urlString = NetworkUtils.buildUrl(userSortChoice, MainActivity.this);
         loaderBundle.putString(getString(R.string.api_url_key), urlString);
 
         if(NetworkUtils.isConnected(MainActivity.this)) {
@@ -148,7 +159,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     @Override
     public void onLoadFinished(Loader<List<Movie>> loader, List<Movie> data) {
-        mMovies.clear();
         mMovies.addAll(data);
         movieAdapter.notifyDataSetChanged();
 
@@ -197,7 +207,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 userSortChoice = getString(R.string.api_url_sorted_by_top_rated);
                 break;
         }
-        initLoader();
+        String urlString = NetworkUtils.buildUrl(userSortChoice, MainActivity.this, 1);
+        mMovies.clear();
+        initLoader(urlString);
     }
 
     @Override

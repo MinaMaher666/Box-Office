@@ -53,16 +53,17 @@ public class NetworkUtils {
         return posterUri.toString() + posterPath;
     }
 
-
-    public static String buildUrl(String userSortChoice, Context context) {
+    public static String buildUrl(String userSortChoice, Context context, int page) {
         Uri uri = Uri.parse(context.getString(R.string.api_url))
                 .buildUpon()
                 .appendPath(userSortChoice)
                 .appendQueryParameter(context.getString(R.string.api_key_url_key),
                         context.getString(R.string.api_key_url_value))
+                .appendQueryParameter(context.getString(R.string.api_page_url_key), String.valueOf(page))
                 .build();
         return uri.toString();
     }
+
     public static URL getUrl(String urlString) {
         URL url = null;
         try {

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,21 +20,37 @@ import com.squareup.picasso.Target;
 
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * Created by mina on 28/03/17.
  */
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
+    private static final String LOG_TAG =MovieAdapter.class.getSimpleName();
     private List<Movie> mMovies;
     private MovieOnClickListener clickListener;
+    private OnReachLastPosition mRefreshListener;
+    private int mPageNo;
+
 
     public MovieAdapter(List<Movie> movies, MovieOnClickListener listener) {
         this.mMovies = movies;
         this.clickListener = listener;
+        mPageNo = 1;
     }
 
     public interface MovieOnClickListener {
         void onClick(int position);
+    }
+
+    public interface OnReachLastPosition {
+        void refreshPage(int page);
+    }
+
+    public void setOnReachLastPositionListener(OnReachLastPosition refreshListener) {
+        this.mRefreshListener = refreshListener;
     }
 
     @Override
@@ -47,7 +64,17 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
     @Override
     public void onBindViewHolder(MovieViewHolder holder, int position) {
+        if (position == mMovies.size() -1) {
+            addNextPageMovies();
+        }
+
         holder.bind(position);
+    }
+
+    private void addNextPageMovies() {
+        if(mRefreshListener != null) {
+            mRefreshListener.refreshPage(++mPageNo);
+        }
     }
 
     @Override
@@ -56,15 +83,14 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
     }
 
     class MovieViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        private ImageView mMoviePoster;
-        private ProgressBar mLoadingIndicator;
-        private TextView rateTextView;
+        @BindView(R.id.movie_poster) ImageView mMoviePoster;
+        @BindView(R.id.poster_pb) ProgressBar mLoadingIndicator;
+        @BindView(R.id.main_rate) TextView mRateTextView;
 
         public MovieViewHolder(View itemView) {
             super(itemView);
-            mMoviePoster = (ImageView) itemView.findViewById(R.id.movie_poster);
-            mLoadingIndicator = (ProgressBar) itemView.findViewById(R.id.poster_pb);
-            rateTextView = (TextView) itemView.findViewById(R.id.main_rate);
+
+            ButterKnife.bind(this, itemView);
             itemView.setOnClickListener(this);
         }
 
@@ -90,18 +116,24 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
                     @Override
                     public void onBitmapFailed(Drawable errorDrawable) {
-
+                        mMoviePoster.setImageDrawable(errorDrawable);
                     }
 
                     @Override
                     public void onPrepareLoad(Drawable placeHolderDrawable) {
                         showLoadingIndicator();
                     }
+
+
                 };
             }
 
-            rateTextView.setText(String.valueOf(rate));
-            Picasso.with(itemView.getContext()).load(posterUri).into(mTarget);
+            mRateTextView.setText(String.valueOf(rate));
+            Context context = itemView.getContext();
+            Picasso.with(context)
+                    .load(posterUri)
+                    .error(ContextCompat.getDrawable(context, R.drawable.noposter))
+                    .into(mTarget);
         }
 
         private void showLoadingIndicator() {
