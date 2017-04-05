@@ -8,7 +8,6 @@
     <string name="api_url">https://api.themoviedb.org/3/movie/</string>
 
     <string name="poster_base_url">https://image.tmdb.org/t/p/</string>
-    <string name="poster_size">w185</string>
 
     <!-- Movies Sort Options -->
     <string name="sorted_by_popular_label">Popular</string>

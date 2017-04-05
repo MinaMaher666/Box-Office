@@ -159,7 +159,12 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     @Override
     public void onLoadFinished(Loader<List<Movie>> loader, List<Movie> data) {
-        mMovies.addAll(data);
+        if(mMovies.isEmpty()) {
+            mMovies.addAll(data);
+        } else {
+            addNewMovies(data);
+        }
+
         movieAdapter.notifyDataSetChanged();
 
         if (mMovies.size() > 0) {
@@ -214,5 +219,18 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
+    }
+
+    private void addNewMovies(List<Movie> newMovies) {
+        for (Movie movie: newMovies) {
+            for (int i=0 ; i<mMovies.size() ; i++) {
+                if(movie.getmMovieId() == mMovies.get(i).getmMovieId()) {
+                    break;
+                }
+                if (i == mMovies.size()-1) {
+                    mMovies.add(movie);
+                }
+            }
+        }
     }
 }

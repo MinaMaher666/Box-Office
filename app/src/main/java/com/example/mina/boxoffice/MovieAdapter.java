@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -97,9 +98,10 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
         private Target mTarget;
 
         void bind(int itemIndex) {
+            Movie currentMovie = mMovies.get(itemIndex);
             Context context = itemView.getContext();
-            double rate = mMovies.get(itemIndex).getmRate();
-            String posterPath = mMovies.get(itemIndex).getmPosterPath();
+            double rate = currentMovie.getmRate();
+            String posterPath = currentMovie.getmPosterPath();
             String posterUrlString = NetworkUtils.buildPosterUrl(context, posterPath);
             attachPosterImageView(Uri.parse(posterUrlString), rate);
         }
