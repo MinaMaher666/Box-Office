@@ -6,7 +6,6 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.example.mina.boxoffice.Model.Movie;
 import com.example.mina.boxoffice.Utils.NetworkUtils;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
@@ -106,7 +106,6 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
             attachPosterImageView(Uri.parse(posterUrlString), rate);
         }
 
-
         private void attachPosterImageView(Uri posterUri, double rate) {
             if(mTarget == null) {
                 mTarget = new Target() {
@@ -119,6 +118,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
                     @Override
                     public void onBitmapFailed(Drawable errorDrawable) {
                         mMoviePoster.setImageDrawable(errorDrawable);
+                        hideLoadingIndicator();
                     }
 
                     @Override

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="@dimen/normal_margin"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/review_author"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0.7"
+        android:textColor="@color/colorAccent"
+        android:textSize="18sp"
+        tools:text="anythingbutfifi:" />
+
+    <TextView
+        android:id="@+id/review"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Owing to its agitated hero’s misfortunes through the ages, this is a film that’s acutely aware of the dangers of emotional exploitation, and it spares its audience a similar fate. With Logan, Mangold and co-writer Scott Frank tell the definitive story of the Wolverine, in an involving and deeply satisfying series finale. It shows the fate of mutants when age starts to weary them, with stakes that feel real, and empathy that’s earned." />
+</LinearLayout>

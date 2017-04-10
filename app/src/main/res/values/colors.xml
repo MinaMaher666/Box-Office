@@ -6,4 +6,6 @@
 
     <color name="colorAccentLight">#66009688</color>
     <color name="colorWhite">#ffffff</color>
+
+    <color name="dividerColor">#c1c1c1</color>
 </resources>

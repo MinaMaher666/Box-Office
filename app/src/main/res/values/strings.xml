@@ -21,14 +21,13 @@
     <!-- Api key -->
     <string name="api_key_url_key">api_key</string>
     <string name="api_key_url_value"><!-- PUT YOUR API KEY HERE --></string>
-
     <string name="api_page_url_key">page</string>
     <!--  URL PARAMS-->
 
     <!-- Json Keys -->
     <string name="json_key_results_array">results</string>
     <string name="json_key_movie_id">id</string>
-    <string name="josn_key_movie_title">title</string>
+    <string name="json_key_movie_title">title</string>
     <string name="json_key_movie_rate">vote_average</string>
     <string name="json_key_movie_plot">overview</string>
     <string name="json_key_poster_path">poster_path</string>
@@ -37,8 +36,26 @@
     <!-- Error Messages -->
     <string name="network_error_message">No Networks Available</string>
     <string name="empty_movies_list_message">No Available Movies</string>
+    <string name="no_reviews_view">No Reviews Available</string>
 
     <string name="full_rate">/10</string>
 
     <string name="spinner_title">Sorted By</string>
+
+    <!-- Reviews URL & JSON Keys-->
+    <string name="reviews_url_path">reviews</string>
+    <string name="json_key_review_author">author</string>
+    <string name="json_key_review_content">content</string>
+
+    <!-- Trailers URL & JSON Keys -->
+    <string name="trailers_url_path">videos</string>
+    <string name="json_key_trailer_title">name</string>
+    <string name="json_key_trailer_key">key</string>
+    <string name="json_key_trailer_site">site</string>
+    <string name="trailer_base_url">https://www.youtube.com/watch</string>
+    <string name="trailer_param_key">v</string>
+
+
+    <string name="reviews_title">Reviews:</string>
+
 </resources>

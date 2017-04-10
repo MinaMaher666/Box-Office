@@ -91,5 +91,48 @@
             android:padding="@dimen/normal_margin"
             android:textSize="@dimen/plot_text_size"
             tools:text="In the near future, a weary Logan cares for an ailing Professor X somewhere on the Mexican border. However, Logan's attempts to hide from the world and his legacy are upended when a young mutant arrives, pursued by dark forces. " />
+
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/dividerColor"
+            android:layout_below="@id/plot"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/normal_margin"
+            android:layout_marginLeft="@dimen/large_margin"
+            android:layout_marginRight="@dimen/large_margin"
+            android:layout_marginTop="@dimen/normal_margin" />
+
+        <TextView
+            android:id="@+id/reviews_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider"
+            android:paddingBottom="@dimen/small_margin"
+            android:paddingLeft="@dimen/normal_margin"
+            android:paddingStart="@dimen/normal_margin"
+            android:text="Reviews:"
+            android:textSize="20sp" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_below="@id/reviews_title"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/no_reviews_view"
+                android:text="@string/no_reviews_view"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:layout_height="@dimen/poster_height" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/reviews_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </FrameLayout>
     </RelativeLayout>
 </ScrollView>

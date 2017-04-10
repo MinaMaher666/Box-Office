@@ -20,6 +20,8 @@ import android.widget.AdapterView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.mina.boxoffice.Model.Movie;
+import com.example.mina.boxoffice.Utils.JsonUtils;
 import com.example.mina.boxoffice.Utils.NetworkUtils;
 
 import java.net.URL;
@@ -57,9 +59,10 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         movieAdapter.setOnReachLastPositionListener(new MovieAdapter.OnReachLastPosition() {
             @Override
             public void refreshPage(int page) {
-                Log.i(LOG_TAG, "refreshPage: ");
-                String newPageUrlString = NetworkUtils.buildUrl(userSortChoice, MainActivity.this, page);
-                initLoader(newPageUrlString);
+                if(NetworkUtils.isConnected(MainActivity.this)) {
+                    String newPageUrlString = NetworkUtils.buildUrl(userSortChoice, MainActivity.this, page);
+                    initLoader(newPageUrlString);
+                }
             }
         });
 
@@ -152,7 +155,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 String urlString = args.getString(getString(R.string.api_url_key));
                 URL apiUrl = NetworkUtils.getUrl(urlString);
                 String jsonResponse = NetworkUtils.getJsonResponse(apiUrl, context);
-                return NetworkUtils.extractMoviesFromJson(jsonResponse, context);
+                return JsonUtils.extractMoviesFromJson(jsonResponse, context);
             }
         };
     }

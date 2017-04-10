@@ -4,9 +4,8 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
-import android.util.Log;
 
-import com.example.mina.boxoffice.Movie;
+import com.example.mina.boxoffice.Model.Movie;
 import com.example.mina.boxoffice.R;
 
 import org.json.JSONArray;
@@ -108,39 +107,37 @@ public class NetworkUtils {
         return builder.toString();
     }
 
-    public static List<Movie> extractMoviesFromJson(String jsonResponse, Context context) {
-        ArrayList<Movie> movies = new ArrayList<>();
-        if (jsonResponse == null || jsonResponse.length()==0) {
-            return movies;
-        }
 
-        try {
-            JSONObject root = new JSONObject(jsonResponse);
-            JSONArray results = root.getJSONArray(context.getString(R.string.json_key_results_array));
+    public static String buildReviewsUrl(Context context, String movieId) {
+        Uri uri = Uri.parse(context.getString(R.string.api_url))
+                .buildUpon()
+                .appendPath(movieId)
+                .appendPath(context.getString(R.string.reviews_url_path))
+                .appendQueryParameter(context.getString(R.string.api_key_url_key),
+                        context.getString(R.string.api_key_url_value))
+                .build();
 
-            int movieId;
-            String movieTitle;
-            String releaseDate;
-            String posterPath;
-            String moviePlot;
-            double rate;
-
-            for (int i=0 ; i<results.length() ; i++) {
-                JSONObject movie = results.getJSONObject(i);
-                movieId = movie.getInt(context.getString(R.string.json_key_movie_id));
-                movieTitle = movie.getString(context.getString(R.string.josn_key_movie_title));
-                releaseDate = movie.getString(context.getString(R.string.json_key_release_date));
-                posterPath = movie.getString(context.getString(R.string.json_key_poster_path));
-                moviePlot = movie.getString(context.getString(R.string.json_key_movie_plot));
-                rate = movie.getDouble(context.getString(R.string.json_key_movie_rate));
-
-                movies.add(new Movie(movieId, movieTitle, releaseDate, posterPath, moviePlot, rate));
-            }
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return movies;
+        return uri.toString();
     }
 
+    public static String buildTrailersUrl(Context context, String movieId) {
+        Uri uri = Uri.parse(context.getString(R.string.api_url))
+                .buildUpon()
+                .appendPath(movieId)
+                .appendPath(context.getString(R.string.trailers_url_path))
+                .appendQueryParameter(context.getString(R.string.api_key_url_key),
+                        context.getString(R.string.api_key_url_value))
+                .build();
+
+        return uri.toString();
+    }
+
+    public static String buildSingleTrailerUrl(Context context, String trailerKey) {
+        Uri uri = Uri.parse(context.getString(R.string.trailer_base_url))
+                .buildUpon()
+                .appendQueryParameter(context.getString(R.string.trailer_param_key), trailerKey)
+                .build();
+
+        return uri.toString();
+    }
 }
