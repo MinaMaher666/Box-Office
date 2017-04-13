@@ -11,7 +11,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -20,6 +19,8 @@ import android.widget.AdapterView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.mina.boxoffice.Adapters.MovieAdapter;
+import com.example.mina.boxoffice.Adapters.SpinnerAdapter;
 import com.example.mina.boxoffice.Model.Movie;
 import com.example.mina.boxoffice.Utils.JsonUtils;
 import com.example.mina.boxoffice.Utils.NetworkUtils;
@@ -41,6 +42,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     private View mEmptyListMessageView;
     private RecyclerView mRecyclerView;
+
+    public static final int LANDSCAPE_SPAN_COUNT = 3;
+    public static final int PORTRAIT_SPAN_COUNT = 2;
 
     public static final String SELECTED_MOVIE = "selected_movie";
     public static final String SORT_USER_CHOICE_BUNDLE_KEY = "user_choice";
@@ -69,9 +73,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         GridLayoutManager layoutManager;
 
         if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            layoutManager = getANumSpanCountGridLayout(3);
+            layoutManager = getANumSpanCountGridLayout(LANDSCAPE_SPAN_COUNT);
         } else {
-            layoutManager = getANumSpanCountGridLayout(2);
+            layoutManager = getANumSpanCountGridLayout(PORTRAIT_SPAN_COUNT);
         }
 
         mRecyclerView = (RecyclerView) findViewById(R.id.movies_recycler_view);

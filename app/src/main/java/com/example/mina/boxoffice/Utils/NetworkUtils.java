@@ -5,12 +5,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 
-import com.example.mina.boxoffice.Model.Movie;
 import com.example.mina.boxoffice.R;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -19,8 +14,6 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by mina on 27/03/17.
@@ -130,6 +123,17 @@ public class NetworkUtils {
                 .build();
 
         return uri.toString();
+    }
+
+    public static Uri buildTrailerUri(Context context, String key) {
+        String trailerBaseUrl = context.getString(R.string.trailer_base_url);
+        String youtubeTrailerParamKey = context.getString(R.string.trailer_param_key);
+
+        Uri trailerUri = Uri.parse(trailerBaseUrl)
+                .buildUpon()
+                .appendQueryParameter(youtubeTrailerParamKey, key)
+                .build();
+        return trailerUri;
     }
 
     public static String buildSingleTrailerUrl(Context context, String trailerKey) {

@@ -8,4 +8,5 @@
     <color name="colorWhite">#ffffff</color>
 
     <color name="dividerColor">#c1c1c1</color>
+    <color name="trailerTextViewBackground">#e1e1e1</color>
 </resources>

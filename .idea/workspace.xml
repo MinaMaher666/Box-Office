@@ -12,27 +12,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8cc1e1f-1e44-455e-926c-f6c982ca8ac7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/Model/MovieReview.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/Model/MovieTrailer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/ReviewAdapter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/Utils/JsonUtils.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/review_item.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-04-05-21-51-28-293.rawproto" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/Movie.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/Model/Movie.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/Adapters/TrailersAdapter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_detail_common.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/trailer_item.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-04-10-23-43-37-676.rawproto" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/MovieAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/Adapters/MovieAdapter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/ReviewAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/Adapters/ReviewAdapter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/SpinnerAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/Adapters/SpinnerAdapter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/DetailActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/DetailActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/MovieAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/MovieAdapter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/Utils/NetworkUtils.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/Utils/NetworkUtils.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout-land/activity_detail.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout-land/activity_detail.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_detail.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_detail.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/dimen.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/dimen.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
     </list>
     <ignored path="Box Office.iws" />
@@ -73,121 +72,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DetailActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/DetailActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ReviewAdapter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/ReviewAdapter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#599#600#0" expanded="true" />
-                <element signature="e#638#639#0" expanded="true" />
-                <element signature="e#1059#1060#0" expanded="true" />
-                <element signature="e#1096#1097#0" expanded="true" />
-                <element signature="e#1143#1144#0" expanded="true" />
-                <element signature="e#1181#1182#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="64" column="17" selection-start-line="64" selection-start-column="17" selection-end-line="64" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MovieAdapter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/MovieAdapter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="102" column="50" selection-start-line="102" selection-start-column="50" selection-end-line="102" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="review_item.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/review_item.xml">
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+            <state relative-caret-position="-1140">
+              <caret line="46" column="23" selection-start-line="46" selection-start-column="23" selection-end-line="46" selection-end-column="23" />
               <folding>
-                <element signature="e#183#205#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_detail.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_detail.xml">
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="119" column="52" selection-start-line="119" selection-start-column="52" selection-end-line="119" selection-end-column="52" />
-              <folding>
-                <element signature="e#4976#4999#0" expanded="true" />
-                <element signature="e#5314#5339#0" expanded="true" />
-                <element signature="e#5513#5535#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_detail.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-land/activity_detail.xml">
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="120" column="52" selection-start-line="120" selection-start-column="52" selection-end-line="120" selection-end-column="52" />
-              <folding>
-                <element signature="e#5232#5257#0" expanded="true" />
-                <element signature="e#5431#5453#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="strings.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="22" column="76" selection-start-line="22" selection-start-column="76" selection-end-line="22" selection-end-column="76" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="movie_list_item.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/movie_list_item.xml">
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="56" selection-start-line="22" selection-start-column="56" selection-end-line="22" selection-end-column="56" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -2008,7 +1900,6 @@
         <option value="$USER_HOME$/.android/build-cache/685f5d7ab796d630185ca033e10926d0a34e9492/output/res/layout/abc_popup_menu_item_layout.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/ic_star.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout-sw600dp/activity_detail.xml" />
-        <option value="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values-sw600dp-v13/values-sw600dp-v13.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/rate_circle.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
@@ -2018,22 +1909,27 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/spinner_item.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/movie_list_item.xml" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/dimen.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values-sw600dp/dimen.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/Model/MovieTrailer.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/Model/MovieReview.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/Utils/NetworkUtils.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/Utils/JsonUtils.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/MovieAdapter.java" />
         <option value="$PROJECT_DIR$/app/build/generated/source/apt/debug/com/example/mina/boxoffice/DetailActivity_ViewBinding.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/ReviewAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/MainActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/DetailActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/review_item.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_detail.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout-land/activity_detail.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/review_item.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
+        <option value="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values-sw600dp-v13/values-sw600dp-v13.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/dimen.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/trailer_item.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_detail_common.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/TrailersAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/Adapters/TrailersAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/Utils/NetworkUtils.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/DetailActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/MainActivity.java" />
       </list>
     </option>
   </component>
@@ -2067,12 +1963,12 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane />
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -2123,28 +2019,6 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BoxOffice" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="boxoffice" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -2153,19 +2027,16 @@
     <property name="android.sdk.path" value="$USER_HOME$/Android/Sdk" />
     <property name="settings.editor.selected.configurable" value="com.genymobile.genymotion.ide.idea.GdmSettings" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="SearchEverywhereHistoryKey" value="strings&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/values/strings.xml&#10;detail&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/layout-land/activity_detail.xml&#10;ac_det&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/layout/activity_detail.xml&#10;detailActi&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/java/com/example/mina/boxoffice/DetailActivity.java&#10;activi&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/layout-land/activity_detail.xml&#10;string&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/values/strings.xml&#10;mainact&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/java/com/example/mina/boxoffice/MainActivity.java&#10;detailacti&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/java/com/example/mina/boxoffice/DetailActivity.java&#10;reviewada&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/java/com/example/mina/boxoffice/ReviewAdapter.java&#10;activity&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/layout/activity_detail.xml&#10;review&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/java/com/example/mina/boxoffice/ReviewAdapter.java&#10;acti&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/layout/activity_detail.xml&#10;main&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/java/com/example/mina/boxoffice/MainActivity.java&#10;deta&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/java/com/example/mina/boxoffice/DetailActivity.java&#10;movieada&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/java/com/example/mina/boxoffice/MovieAdapter.java&#10;review ite&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/layout/review_item.xml&#10;build&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/build.gradle&#10;js&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/java/com/example/mina/boxoffice/Utils/JsonUtils.java&#10;movie&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/layout/movie_list_item.xml&#10;viewh&#9;PSI&#9;JAVA://com.example.mina.boxoffice.MovieAdapter$MovieViewHolder_ViewBinding&#10;adap&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/java/com/example/mina/boxoffice/MovieAdapter.java&#10;colors&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/values/colors.xml&#10;adapter&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/java/com/example/mina/boxoffice/MovieAdapter.java&#10;networ&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/java/com/example/mina/boxoffice/Utils/NetworkUtils.java&#10;trin&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/values/strings.xml&#10;str&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/values/strings.xml&#10;netw&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/java/com/example/mina/boxoffice/Utils/NetworkUtils.java&#10;maina&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/java/com/example/mina/boxoffice/MainActivity.java&#10;mainA&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/java/com/example/mina/boxoffice/MainActivity.java&#10;stri&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/values/strings.xml&#10;dimen&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/values-sw600dp/dimen.xml&#10;Main&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/java/com/example/mina/boxoffice/MainActivity.java&#10;build.grad&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/build.gradle&#10;netwo&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/java/com/example/mina/boxoffice/Utils/NetworkUtils.java&#10;ma&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/java/com/example/mina/boxoffice/MainActivity.java&#10;mani&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/AndroidManifest.xml&#10;colo&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/values/colors.xml&#10;dim&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/values/dimen.xml&#10;men&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/menu/menu_main.xml&#10;arra&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/values/arrays.xml&#10;menu_main&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/menu/menu_main.xml&#10;strings.&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/values/strings.xml&#10;menu&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/menu/menu_main.xml&#10;mainActi&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/java/com/example/mina/boxoffice/MainActivity.java&#10;strin&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/values/strings.xml&#10;ite&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/layout/movie_list_item.xml&#10;dime&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/values/dimen.xml&#10;rate&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/drawable/rate_circle.xml&#10;ime&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/values/dimen.xml&#10;item&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/layout/movie_list_item.xml" />
+    <property name="SearchEverywhereHistoryKey" value="strin&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/values/strings.xml&#10;strings&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/values/strings.xml&#10;string&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/values/strings.xml&#10;comm&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/layout/activity_detail_common.xml&#10;detail&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/java/com/example/mina/boxoffice/DetailActivity.java&#10;dime&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/values/dimen.xml&#10;val&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/build/intermediates/res/merged/debug/values-sw600dp-v13/values-sw600dp-v13.xml&#10;colors&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/values/colors.xml&#10;activity&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/layout-land/activity_detail.xml&#10;activity_&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/layout/activity_detail_common.xml&#10;activity_detail&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/layout-land/activity_detail.xml&#10;ac_det&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/layout/activity_detail.xml&#10;detailActi&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/java/com/example/mina/boxoffice/DetailActivity.java&#10;activi&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/layout-land/activity_detail.xml&#10;mainact&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/java/com/example/mina/boxoffice/MainActivity.java&#10;detailacti&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/java/com/example/mina/boxoffice/DetailActivity.java&#10;reviewada&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/java/com/example/mina/boxoffice/ReviewAdapter.java&#10;review&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/java/com/example/mina/boxoffice/ReviewAdapter.java&#10;acti&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/layout/activity_detail.xml&#10;main&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/java/com/example/mina/boxoffice/MainActivity.java&#10;deta&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/java/com/example/mina/boxoffice/DetailActivity.java&#10;movieada&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/java/com/example/mina/boxoffice/MovieAdapter.java&#10;review ite&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/layout/review_item.xml&#10;build&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/build.gradle&#10;js&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/java/com/example/mina/boxoffice/Utils/JsonUtils.java&#10;movie&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/layout/movie_list_item.xml&#10;viewh&#9;PSI&#9;JAVA://com.example.mina.boxoffice.MovieAdapter$MovieViewHolder_ViewBinding&#10;adap&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/java/com/example/mina/boxoffice/MovieAdapter.java&#10;adapter&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/java/com/example/mina/boxoffice/MovieAdapter.java&#10;networ&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/java/com/example/mina/boxoffice/Utils/NetworkUtils.java&#10;trin&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/values/strings.xml&#10;str&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/values/strings.xml&#10;netw&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/java/com/example/mina/boxoffice/Utils/NetworkUtils.java&#10;maina&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/java/com/example/mina/boxoffice/MainActivity.java&#10;mainA&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/java/com/example/mina/boxoffice/MainActivity.java&#10;stri&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/values/strings.xml&#10;dimen&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/values-sw600dp/dimen.xml&#10;Main&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/java/com/example/mina/boxoffice/MainActivity.java&#10;build.grad&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/build.gradle&#10;netwo&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/java/com/example/mina/boxoffice/Utils/NetworkUtils.java&#10;ma&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/java/com/example/mina/boxoffice/MainActivity.java&#10;mani&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/AndroidManifest.xml&#10;colo&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/values/colors.xml&#10;dim&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/values/dimen.xml&#10;men&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/menu/menu_main.xml&#10;arra&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/values/arrays.xml&#10;menu_main&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/menu/menu_main.xml&#10;strings.&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/values/strings.xml&#10;menu&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/res/menu/menu_main.xml&#10;mainActi&#9;FILE&#9;file:///home/mina/Desktop/Android/BoxOffice/app/src/main/java/com/example/mina/boxoffice/MainActivity.java" />
     <property name="device.picker.selection" value="192.168.56.101:5555" />
     <property name="VectorAssetImportPath" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
-      <recent name="$PROJECT_DIR$/app/src/main/res" />
-    </key>
     <key name="MoveMembersDialog.RECENTS_KEY">
       <recent name="com.example.mina.boxoffice.Utils.JsonUtils" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.example.mina.boxoffice.Adapters" />
       <recent name="com.example.mina.boxoffice.Model" />
     </key>
     <key name="android.template.packageName">
@@ -2174,8 +2045,12 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
+      <recent name="$PROJECT_DIR$/app/src/main/res" />
+    </key>
   </component>
-  <component name="RunManager" selected="Android App.app">
+  <component name="RunManager" selected="Gradle.BoxOffice:app [clean]">
     <configuration default="false" name="BoxOffice:app [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -2615,31 +2490,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="45" selection-start-line="5" selection-start-column="45" selection-end-line="5" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -2662,13 +2512,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
@@ -2712,7 +2562,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values-sw600dp-v13/values-sw600dp-v13.xml" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/rate_circle.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -2721,13 +2570,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="32" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/arrays.xml">
@@ -2738,44 +2587,44 @@
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/Android/Sdk/platforms/android-25/data/res/layout/simple_list_item_1.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="77" selection-start-line="11" selection-start-column="77" selection-end-line="11" selection-end-column="77" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="41" selection-start-line="3" selection-start-column="41" selection-end-line="3" selection-end-column="41" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/spinner_item.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/spinner_item.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest">
+      <provider editor-type-id="android-designer2">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="42" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-manifest">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/noposter.jpg">
@@ -2790,36 +2639,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimen.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="44" selection-start-line="2" selection-start-column="44" selection-end-line="2" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/SpinnerAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/Utils/DetailNetworkUtils.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/Utils/NetworkUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="140" column="30" selection-start-line="140" selection-start-column="30" selection-end-line="140" selection-end-column="30" />
-          <folding>
-            <element signature="e#4152#4187#0" expanded="false" />
-            <element signature="e#4283#4328#0" expanded="false" />
-            <element signature="e#4368#4411#0" expanded="false" />
-            <element signature="e#4437#4482#0" expanded="false" />
-            <element signature="e#4662#4706#0" expanded="false" />
-            <element signature="e#4775#4820#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/Model/MovieReview.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -2834,14 +2654,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/Android/Sdk/extras/android/m2repository/com/android/support/recyclerview-v7/25.3.0/recyclerview-v7-25.3.0-sources.jar!/android/support/v7/widget/GridLayoutManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="196">
@@ -2853,31 +2665,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1440">
           <caret line="110" column="0" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/movie_list_item.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="56" selection-start-line="22" selection-start-column="56" selection-end-line="22" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build/generated/source/apt/debug/com/example/mina/boxoffice/MovieAdapter$MovieViewHolder_ViewBinding.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build/generated/source/apt/debug/com/example/mina/boxoffice/MovieAdapter$MovieViewHolder_ViewBinding.java" />
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -2886,101 +2677,186 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/build/generated/source/apt/debug/com/example/mina/boxoffice/DetailActivity_ViewBinding.java">
+    <entry file="file://$PROJECT_DIR$/app/build/generated/source/apt/debug/com/example/mina/boxoffice/DetailActivity_ViewBinding.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-land/activity_detail.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="86">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+        <state relative-caret-position="353">
+          <caret line="96" column="51" selection-start-line="96" selection-start-column="51" selection-end-line="96" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_detail.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="94" column="8" selection-start-line="94" selection-start-column="8" selection-end-line="98" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/movie_list_item.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="22" column="56" selection-start-line="22" selection-start-column="56" selection-end-line="22" selection-end-column="56" />
+          <folding>
+            <element signature="e#837#859#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values-sw600dp-v13/values-sw600dp-v13.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="37" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/MovieAdapter.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimen.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
+        <state relative-caret-position="330">
+          <caret line="22" column="46" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="51" selection-start-line="10" selection-start-column="51" selection-end-line="10" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/review_item.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="15" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/trailer_item.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <element signature="e#227#256#0" expanded="true" />
+            <element signature="e#370#402#0" expanded="true" />
+            <element signature="e#423#444#0" expanded="true" />
+            <element signature="e#471#493#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_detail_common.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="32" column="48" selection-start-line="32" selection-start-column="48" selection-end-line="32" selection-end-column="48" />
+          <folding>
+            <element signature="e#907#928#0" expanded="true" />
+            <element signature="e#957#979#0" expanded="true" />
+            <element signature="e#1009#1031#0" expanded="true" />
+            <element signature="e#1053#1077#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/Utils/NetworkUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-900">
+          <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4465#4509#0" expanded="true" />
+            <element signature="e#4551#4596#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/Adapters/MovieAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1155">
           <caret line="102" column="50" selection-start-line="102" selection-start-column="50" selection-end-line="102" selection-end-column="50" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/Adapters/SpinnerAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="64" column="17" selection-start-line="64" selection-start-column="17" selection-end-line="64" selection-end-column="17" />
+        <state relative-caret-position="180">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/ReviewAdapter.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/Adapters/TrailersAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+        <state relative-caret-position="690">
+          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#599#600#0" expanded="true" />
-            <element signature="e#638#639#0" expanded="true" />
-            <element signature="e#1059#1060#0" expanded="true" />
-            <element signature="e#1096#1097#0" expanded="true" />
-            <element signature="e#1143#1144#0" expanded="true" />
-            <element signature="e#1181#1182#0" expanded="true" />
+            <element signature="e#1353#1354#0" expanded="true" />
+            <element signature="e#1390#1391#0" expanded="true" />
+            <element signature="e#1437#1438#0" expanded="true" />
+            <element signature="e#1476#1477#0" expanded="true" />
+            <element signature="e#1775#2019#0" expanded="true" />
+            <element signature="e#2018#2019#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/Adapters/ReviewAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="17" column="3" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="3" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/DetailActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-land/activity_detail.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="120" column="52" selection-start-line="120" selection-start-column="52" selection-end-line="120" selection-end-column="52" />
+        <state relative-caret-position="-2135">
+          <caret line="46" column="31" selection-start-line="46" selection-start-column="31" selection-end-line="46" selection-end-column="31" />
           <folding>
-            <element signature="e#5232#5257#0" expanded="true" />
-            <element signature="e#5431#5453#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_detail.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="119" column="52" selection-start-line="119" selection-start-column="52" selection-end-line="119" selection-end-column="52" />
-          <folding>
-            <element signature="e#4976#4999#0" expanded="true" />
-            <element signature="e#5314#5339#0" expanded="true" />
-            <element signature="e#5513#5535#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/review_item.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding>
-            <element signature="e#183#205#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
+        <state relative-caret-position="330">
           <caret line="22" column="76" selection-start-line="22" selection-start-column="76" selection-end-line="22" selection-end-column="76" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/mina/boxoffice/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1140">
+          <caret line="46" column="23" selection-start-line="46" selection-start-column="23" selection-end-line="46" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

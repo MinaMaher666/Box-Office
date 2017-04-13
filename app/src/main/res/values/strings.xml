@@ -37,6 +37,7 @@
     <string name="network_error_message">No Networks Available</string>
     <string name="empty_movies_list_message">No Available Movies</string>
     <string name="no_reviews_view">No Reviews Available</string>
+    <string name="no_trailers_view">No Trailers Available</string>
 
     <string name="full_rate">/10</string>
 
@@ -57,5 +58,5 @@
 
 
     <string name="reviews_title">Reviews:</string>
-
+    <string name="trailers_title">Trailers:</string>
 </resources>

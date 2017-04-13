@@ -20,6 +20,7 @@
     <dimen name="title_max_width">300dp</dimen>
 
     <dimen name="menu_item_text_size">16sp</dimen>
+    <dimen name="trailer_title_text_size">20sp</dimen>
     <dimen name="title_text_size">24sp</dimen>
     <dimen name="plot_text_size">20sp</dimen>
 

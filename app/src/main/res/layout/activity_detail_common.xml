@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/st_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/normal_margin"
+        android:layout_marginLeft="@dimen/large_margin"
+        android:layout_marginRight="@dimen/large_margin"
+        android:layout_marginTop="@dimen/normal_margin"
+        android:background="@color/dividerColor" />
+
+    <TextView
+        android:id="@+id/trailers_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/st_divider"
+        android:paddingBottom="@dimen/small_margin"
+        android:paddingLeft="@dimen/normal_margin"
+        android:paddingStart="@dimen/normal_margin"
+        android:text="@string/trailers_title"
+        android:textSize="20sp" />
+
+    <FrameLayout
+        android:id="@+id/trailers_frame_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/trailers_title">
+
+        <TextView
+            android:id="@+id/no_trailers_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/no_trailers_view"
+            android:visibility="gone" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/trailers_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </FrameLayout>
+
+    <View
+        android:id="@+id/nd_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/trailers_frame_layout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/normal_margin"
+        android:layout_marginLeft="@dimen/large_margin"
+        android:layout_marginRight="@dimen/large_margin"
+        android:layout_marginTop="@dimen/normal_margin"
+        android:background="@color/dividerColor" />
+
+    <TextView
+        android:id="@+id/reviews_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nd_divider"
+        android:paddingBottom="@dimen/small_margin"
+        android:paddingLeft="@dimen/normal_margin"
+        android:paddingStart="@dimen/normal_margin"
+        android:text="@string/reviews_title"
+        android:textSize="20sp" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/reviews_title">
+
+        <TextView
+            android:id="@+id/no_reviews_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/poster_height"
+            android:gravity="center"
+            android:text="@string/no_reviews_view"
+            android:visibility="gone" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/reviews_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </FrameLayout>
+</RelativeLayout>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/trailer_title"
+    android:background="@color/trailerTextViewBackground"
+    android:layout_width="@dimen/detail_poster_height"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:textSize="@dimen/trailer_title_text_size"
+    android:padding="@dimen/small_margin"
+    android:layout_margin="@dimen/normal_margin"
+    android:gravity="center"
+    android:maxLines="1"
+    android:textColor="@color/colorPrimaryDark"
+    tools:text="Official Trailer" />
+
