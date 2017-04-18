@@ -4,5 +4,6 @@
         <item>@string/sorted_by_now_playing_label</item>
         <item>@string/sorted_by_popular_label</item>
         <item>@string/sorted_by_top_rated_label</item>
+        <item>@string/sorted_by_favorites_lable</item>
     </string-array>
 </resources>

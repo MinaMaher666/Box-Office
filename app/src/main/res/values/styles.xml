@@ -8,4 +8,12 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="Actionbar.Solid.BoxOffice.NoTitle" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="displayOptions">useLogo|showHome</item>
+        <item name="logo">@drawable/ic_logo</item>
+    </style>
+
+    <style name="AppTheme.BoxOffice" parent="@style/AppTheme">
+        <item name="actionBarStyle">@style/Actionbar.Solid.BoxOffice.NoTitle</item>
+    </style>
 </resources>

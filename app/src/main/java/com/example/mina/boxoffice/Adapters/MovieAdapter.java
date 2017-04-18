@@ -104,7 +104,16 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
             double rate = currentMovie.getmRate();
             String posterPath = currentMovie.getmPosterPath();
             String posterUrlString = NetworkUtils.buildPosterUrl(context, posterPath);
-            attachPosterImageView(Uri.parse(posterUrlString), rate);
+            if(posterPath == null ) {
+                if(currentMovie.getmPoster()!= null) {
+                    mMoviePoster.setImageBitmap(currentMovie.getmPoster());
+                } else {
+                    mMoviePoster.setImageResource(R.drawable.noposter);
+                }
+                mRateTextView.setText(String.valueOf(rate));
+            } else {
+                attachPosterImageView(Uri.parse(posterUrlString), rate);
+            }
         }
 
         private void attachPosterImageView(Uri posterUri, double rate) {

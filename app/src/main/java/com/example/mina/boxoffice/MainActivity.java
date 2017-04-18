@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -24,14 +25,19 @@ import com.example.mina.boxoffice.Adapters.SpinnerAdapter;
 import com.example.mina.boxoffice.Model.Movie;
 import com.example.mina.boxoffice.Utils.JsonUtils;
 import com.example.mina.boxoffice.Utils.NetworkUtils;
+import com.example.mina.boxoffice.Utils.ProviderUtils;
 
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<Movie>>, MovieAdapter.MovieOnClickListener,
         Spinner.OnItemSelectedListener{
-
+    @BindView(R.id.empty_list_message_text_view) View mEmptyListMessageView;
+    @BindView(R.id.movies_recycler_view) RecyclerView mRecyclerView;
 
     public static final String LOG_TAG = MainActivity.class.getSimpleName();
     public static final int LOADER_ID = 666;
@@ -39,9 +45,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     Toast mToast;
     private List<Movie> mMovies;
     private MovieAdapter movieAdapter;
-
-    private View mEmptyListMessageView;
-    private RecyclerView mRecyclerView;
 
     public static final int LANDSCAPE_SPAN_COUNT = 3;
     public static final int PORTRAIT_SPAN_COUNT = 2;
@@ -57,13 +60,16 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        ButterKnife.bind(this);
+
         mMovies = new ArrayList<>();
         movieAdapter = new MovieAdapter(mMovies, this);
 
         movieAdapter.setOnReachLastPositionListener(new MovieAdapter.OnReachLastPosition() {
             @Override
             public void refreshPage(int page) {
-                if(NetworkUtils.isConnected(MainActivity.this)) {
+                // mSpinner position should not be favorite so doesn't make api calls on favorites
+                if(!userSortChoice.equals(getString(R.string.sorted_by_favorites_lable)) && NetworkUtils.isConnected(MainActivity.this)) {
                     String newPageUrlString = NetworkUtils.buildUrl(userSortChoice, MainActivity.this, page);
                     initLoader(newPageUrlString);
                 }
@@ -78,9 +84,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             layoutManager = getANumSpanCountGridLayout(PORTRAIT_SPAN_COUNT);
         }
 
-        mRecyclerView = (RecyclerView) findViewById(R.id.movies_recycler_view);
-        mEmptyListMessageView = findViewById(R.id.empty_list_message_text_view);
-
         mRecyclerView.setLayoutManager(layoutManager);
         mRecyclerView.setAdapter(movieAdapter);
 
@@ -90,8 +93,20 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             mSavedSpinnerSelectedPosition = 0;
         }
 
-        String urlString = NetworkUtils.buildUrl(userSortChoice, MainActivity.this, 1);
-        initLoader(urlString);
+        if(!NetworkUtils.isConnected(MainActivity.this)) {
+            showNoNetworkToast();
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (userSortChoice != null && userSortChoice.equals(getString(R.string.sorted_by_favorites_lable))) {
+            mMovies.clear();
+            String urlString = NetworkUtils.buildUrl(userSortChoice, MainActivity.this, 1);
+            initLoader(urlString);
+        }
     }
 
     @Override
@@ -104,11 +119,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         Bundle loaderBundle = new Bundle();
         loaderBundle.putString(getString(R.string.api_url_key), urlString);
 
-        if(NetworkUtils.isConnected(MainActivity.this)) {
-            getSupportLoaderManager().restartLoader(LOADER_ID, loaderBundle, this);
-        } else {
-            showNoNetworkToast();
-        }
+        getSupportLoaderManager().restartLoader(LOADER_ID, loaderBundle, this);
     }
 
     @Override
@@ -126,6 +137,10 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         mSpinner.setAdapter(spinnerAdapter);
         mSpinner.setSelection(mSavedSpinnerSelectedPosition);
         mSpinner.setOnItemSelectedListener(this);
+        if(!NetworkUtils.isConnected(MainActivity.this)) {
+            mSpinner.setSelection(3);
+        }
+
         return true;
     }
 
@@ -140,8 +155,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             mToast.cancel();
         mToast = Toast.makeText(MainActivity.this, getString(R.string.network_error_message), Toast.LENGTH_SHORT);
         mToast.show();
-
-        showEmptyListMessage();
     }
 
     @Override
@@ -156,10 +169,15 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             @Override
             public List<Movie> loadInBackground() {
                 Context context = MainActivity.this;
-                String urlString = args.getString(getString(R.string.api_url_key));
-                URL apiUrl = NetworkUtils.getUrl(urlString);
-                String jsonResponse = NetworkUtils.getJsonResponse(apiUrl, context);
-                return JsonUtils.extractMoviesFromJson(jsonResponse, context);
+
+                if(userSortChoice.equals(getString(R.string.sorted_by_favorites_lable))) {
+                    return ProviderUtils.getAllFavoriteMovies(MainActivity.this);
+                } else {
+                    String urlString = args.getString(getString(R.string.api_url_key));
+                    URL apiUrl = NetworkUtils.getUrl(urlString);
+                    String jsonResponse = NetworkUtils.getJsonResponse(apiUrl, context);
+                    return JsonUtils.extractMoviesFromJson(jsonResponse, context);
+                }
             }
         };
     }
@@ -171,12 +189,17 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         } else {
             addNewMovies(data);
         }
-
         movieAdapter.notifyDataSetChanged();
 
         if (mMovies.size() > 0) {
             hideEmptyListMessage();
         } else {
+            if(userSortChoice.equals(getString(R.string.sorted_by_favorites_lable))){
+                if (mToast != null)
+                    mToast.cancel();
+                mToast = Toast.makeText(MainActivity.this, R.string.no_favorite_movies_error, Toast.LENGTH_SHORT);
+                mToast.show();
+            }
             showEmptyListMessage();
         }
     }
@@ -206,6 +229,10 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        if(!NetworkUtils.isConnected(MainActivity.this) && position < 3) {
+            showNoNetworkToast();
+        }
+
         switch (position) {
             case 0:
                 userSortChoice = getString(R.string.api_url_sorted_by_now_playing);
@@ -218,6 +245,11 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             case 2:
                 userSortChoice = getString(R.string.api_url_sorted_by_top_rated);
                 break;
+
+            case 3:
+                userSortChoice = getString(R.string.sorted_by_favorites_lable);
+                break;
+
         }
         String urlString = NetworkUtils.buildUrl(userSortChoice, MainActivity.this, 1);
         mMovies.clear();
@@ -228,6 +260,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     public void onNothingSelected(AdapterView<?> parent) {
     }
 
+    // Remove Duplicates when other pages requested more then the first one
     private void addNewMovies(List<Movie> newMovies) {
         for (Movie movie: newMovies) {
             for (int i=0 ; i<mMovies.size() ; i++) {

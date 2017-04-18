@@ -21,6 +21,16 @@
             android:textSize="@dimen/title_text_size"
             tools:text="Logan" />
 
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/favorit_button"
+            android:background="@drawable/favorit"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="@dimen/small_margin"/>
+
         <ImageView
             android:id="@+id/detail_poster"
             android:layout_width="@dimen/detail_poster_width"
