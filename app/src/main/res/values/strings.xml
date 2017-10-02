@@ -23,7 +23,7 @@
     <!-- URL PARAMS -->
     <!-- Api key -->
     <string name="api_key_url_key">api_key</string>
-    <string name="api_key_url_value"><!-- PUT YOUR API KEY HERE --></string>
+    <string name="api_key_url_value">0c32cce056404719ff7861467c5cb00b</string>
     <string name="api_page_url_key">page</string>
     <!--  URL PARAMS-->
 
